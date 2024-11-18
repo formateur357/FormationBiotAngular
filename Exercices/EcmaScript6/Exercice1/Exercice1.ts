@@ -3,16 +3,21 @@
  * Elle utilise des paramètres avec des valeurs par défaut pour gérer
  * les informations optionnelles comme la catégorie et la réduction.
  *
- * @param {string} name - Le nom du produit (obligatoire).
- * @param {number} price - Le prix initial du produit en euros (obligatoire).
- * @param {string} [category="General"] - La catégorie du produit (optionnelle, par défaut "General").
- * @param {number} [discount=0] - La réduction en pourcentage (optionnelle, par défaut 0).
- * @returns {string} Une chaîne formatée décrivant le produit.
+ * @param name - Le nom du produit (obligatoire).
+ * @param price - Le prix initial du produit en euros (obligatoire).
+ * @param category - La catégorie du produit (optionnelle, par défaut "General").
+ * @param discount - La réduction en pourcentage (optionnelle, par défaut 0).
+ * @returns Une chaîne formatée décrivant le produit.
  */
-function describeProduct(name, price, category = "General", discount = 0) {
+function describeProductTs(
+  name: string, // Nom du produit
+  price: number, // Prix initial en euros
+  category: string = "General", // Catégorie avec une valeur par défaut
+  discount: number = 0 // Réduction avec une valeur par défaut
+): string {
   // 1. Calcul du prix final en tenant compte de la réduction.
   // La réduction est calculée comme (prix * pourcentage) / 100.
-  const finalPrice = price - (price * discount) / 100;
+  const finalPrice: number = price - (price * discount) / 100;
 
   // 2. Retour d'une chaîne formatée avec toutes les informations du produit.
   // Utilisation de la syntaxe `template string` pour rendre le code plus lisible.
