@@ -1,5 +1,6 @@
+<p>Compteur : {{ count}}</p>
 <ul>
-  <app-task></app-task>
-  <app-task></app-task>
-  <app-task></app-task>
+  <app-task [name]="name1" [complete]="complete1" (message)="toggleCount($event)"></app-task>
+  <app-task [name]="name2" [complete]="complete2" (message)="toggleCount($event)"></app-task>
+  <app-task [name]="name3" [complete]="complete3" (message)="toggleCount($event)"></app-task>
 </ul>

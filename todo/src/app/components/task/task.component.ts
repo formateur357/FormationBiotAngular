@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
+import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { FormsModule } from '@angular/forms'
+import { MatButtonModule } from '@angular/material/button'
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [ MatButtonModule, FormsModule ],
+  imports: [MatButtonModule, FormsModule],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
 })
 export class TaskComponent {
-  public name: string = 'Jean Jean';
-  public complete: boolean = true;
+  @Input({ required: true }) public name!: string;
+  @Input({ required: true }) public complete!: boolean;
+  @Output() public message: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   getComplete() {
     return this.complete ? 'Fini !' : 'En cours...';
@@ -40,5 +41,6 @@ export class TaskComponent {
 
   toggleComplete() {
     this.complete = !this.complete;
+    this.message.emit(this.complete);
   }
 }
