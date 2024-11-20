@@ -1,7 +1,7 @@
-<input [(ngModel)]="name">
+<input [(ngModel)]="task.title">
 <div>
   <li [class]="getItemVariant()">
-    Task : {{ name }} => <span [class]="getBadgeVariant()">{{ getComplete() }}</span>
+    Task : {{ task.title }} => <span [class]="getBadgeVariant()">{{ getComplete() }}</span>
   </li>
   <button  mat-flat-button color="accent" (click)="toggleComplete()">{{ getButtonText() }}</button>
 </div>

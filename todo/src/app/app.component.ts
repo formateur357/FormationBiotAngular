@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TaskComponent } from './components/task/task.component';
+import { Task } from './class/task.model';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +11,23 @@ import { TaskComponent } from './components/task/task.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  public count: number = 2;
+  public count: number
 
-  public name1: string = 'Toto';
-  public name2: string = 'Michel';
-  public name3: string = 'Jean-louis';
+  public tasks: Task[] = []
 
-  public complete1: boolean = false;
-  public complete2: boolean = true;
-  public complete3: boolean = true;
+  constructor() {
+    this.tasks.push(
+      new Task(0, 'Promener le chien', false, 'Dans le parc en bas de la rue.')
+    );
+    this.tasks.push(
+      new Task(5, 'Faire le menage', true, 'Aspirateur + serpilliere.')
+    );
+    this.tasks.push(
+      new Task(28, 'Faire les courses', true, 'liste de courses: ...')
+    );
+
+    this.count = this.tasks.filter(task => task.completed).length
+  }
 
   public toggleCount(state: boolean): void {
     this.count += state ? 1 : -1;
