@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TaskComponent } from './components/task/task.component';
 import { Task } from './class/task.model';
+import { DecimalPipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TaskComponent],
+  imports: [RouterOutlet, TaskComponent, DecimalPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -31,5 +33,9 @@ export class AppComponent {
 
   public toggleCount(state: boolean): void {
     this.count += state ? 1 : -1;
+  }
+
+  public getPercent(): number {
+    return this.tasks.length > 0 ? (this.count / this.tasks.length * 100) : 0
   }
 }
