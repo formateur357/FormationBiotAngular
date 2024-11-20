@@ -1,5 +1,7 @@
 <p>
-  Nombres de taches terminees : {{ count }} / {{ tasks.length }} = {{ getPercent() | number:'1.0-2' }}%
+  Nombres de taches terminees : {{ count }} / {{ tasks.length }} =
+  <!-- <span [ngStyle]="{color: getTextColor(), 'font-weight': 'bold'}">{{ getPercent() | number:'1.0-2' }}%</span> -->
+  <span [ngStyle]="{color: textColor, 'font-weight': 'bold'}">{{ getPercent() | number:'1.0-2' }}%</span>
 </p>
 
 

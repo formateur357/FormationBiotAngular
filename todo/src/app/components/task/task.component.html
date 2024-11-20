@@ -1,7 +1,12 @@
-<input [(ngModel)]="task.title">
-<div>
-  <li [class]="getItemVariant()">
-    Task : {{ task.title }} => <span [class]="getBadgeVariant()">{{ getComplete() }}</span>
-  </li>
-  <button  mat-flat-button color="accent" (click)="toggleComplete()">{{ getButtonText() }}</button>
-</div>
+<li>
+  <input [(ngModel)]="task.title">
+  <div>
+    <p [class]="getItemVariant()">
+      Id : {{ task.id }}<br />
+      Tache : {{ task.title }} => <span [class]="getBadgeVariant()">{{ getComplete() }}</span><br />
+      Description : {{ task.description }}
+      Date de creation : {{ task.createdDate | date:'dd/MM/y hh:mm' }}
+    </p>
+    <button  mat-flat-button color="accent" (click)="toggleComplete()">{{ getButtonText() }}</button>
+  </div>
+</li>
