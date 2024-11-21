@@ -1,0 +1,27 @@
+<p>
+  Nombres de taches terminees : {{ count }} / {{ todo.tasks.length }} =
+  <!-- <span [ngStyle]="{color: getTextColor(), 'font-weight': 'bold'}">{{ getPercent() | number:'1.0-2' }}%</span> -->
+  <span [ngStyle]="{color: textColor, 'font-weight': 'bold'}">{{ getPercent() | number:'1.0-2' }}%</span>
+</p>
+
+<ul>
+    @for (task of todo.tasks; track task.id) {
+      <app-task [task]="task"></app-task>
+    } @empty {
+      <li>Il n'y a aucune tache actuellement.</li>
+    }
+</ul>
+
+
+<!-- @if (tasks.length > 0) {
+  <ul>
+    @for (task of tasks; track task.id) {
+      <app-task [task]="task" (message)="toggleCount($event)"></app-task>
+    }
+  </ul>
+} @else {
+  <p>
+    Il n'y a aucune tache actuellement.
+  </p>
+} -->
+

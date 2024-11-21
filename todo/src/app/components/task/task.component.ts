@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms'
 import { MatButtonModule } from '@angular/material/button'
 import { Task } from '../../class/task.model';
 import { DatePipe } from '@angular/common';
+import { TodolistService } from '../../services/todolist.service';
 
 @Component({
   selector: 'app-task',
@@ -13,7 +14,8 @@ import { DatePipe } from '@angular/common';
 })
 export class TaskComponent {
   @Input({ required: true }) public task!: Task;
-  @Output() public message: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  constructor(public todo: TodolistService) {}
 
   getComplete() {
     return this.task.completed ? 'Fini !' : 'En cours...';
@@ -41,7 +43,6 @@ export class TaskComponent {
   }
 
   toggleComplete() {
-    this.task.completed = !this.task.completed;
-    this.message.emit(this.task.completed);
+  this.todo.toggleComplete(this.task.id)
   }
 }
