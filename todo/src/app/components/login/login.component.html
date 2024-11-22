@@ -1,1 +1,7 @@
-<p>login works!</p>
+@if (!auth.isAuth) {
+  <button (click)="auth.login()">Login</button>
+} @else {
+  <p>
+    Vous etes deja connecte !!
+  </p>
+}

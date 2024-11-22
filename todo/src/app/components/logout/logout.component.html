@@ -1,1 +1,3 @@
-<p>logout works!</p>
+@if (auth.isAuth) {
+  <button (click)="auth.logout()">Logout</button>
+}
