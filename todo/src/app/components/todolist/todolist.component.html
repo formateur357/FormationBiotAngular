@@ -8,7 +8,7 @@
     @for (task of todo.tasks; track task.id) {
       <app-task [task]="task"></app-task>
     } @empty {
-      <li>Il n'y a aucune tache.</li>
+      <li>Il n'y a aucune tache actuellement.</li>
     }
 </ul>
 
